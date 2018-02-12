@@ -1,0 +1,25 @@
+<div>
+    <button id = "onClickButton">Fetch Data For me</button>
+</div>
+
+<script type="text/javascript">
+
+(function() {
+
+    document.getElementById("onClickButton").addEventListener("click", (event)=>{
+        event.preventDefault()
+
+        const listOwner = ""
+        const listItems = []
+
+        fetch("/hoyong/_api/web/lists/getbytitle('First%20Project')/items?$select=Title", {
+            method: 'GET',
+            headers: { "Accept": "application/json; odata=verbose" },
+            credentials: 'same-origin'
+        }).then(data => data.json())
+        .then(data => console.log(data))
+    })
+
+}())
+
+</script>
